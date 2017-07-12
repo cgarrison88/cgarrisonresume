@@ -258,7 +258,7 @@ $(".education-entry:last").append(HTMLschoolName.replace("%data%", education.sch
     for (var c = 0; c < education.onlineCourses.length; c++) {
 
         $(".education-entry:last").append;
-         (HTMLonlineTitle.replace("%data%",education.onlineCourses[c].title) + HTMLonlineSchool.replace("%data%",education.onlineCourses[c].school) +  HTMLonlineDates.replace("%data%",education.onlineCourses[c].year) + HTMLonlineURL.replace("%data%",education.onlineCourses[c].url))
+         (HTMLonlineTitle.replace("%data%",education.onlineCourses[c].title) + HTMLonlineSchool.replace("%data%",education.onlineCourses[c].school) +  HTMLonlineDates.replace("%data%",education.onlineCourses[c].year) + HTMLonlineURL.replace("%data%",education.onlineCourses[c].url));
     }
 }
 
