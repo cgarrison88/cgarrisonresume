@@ -1,4 +1,3 @@
-
 // Biography //
 var bio = {
     "name": "Cody Garrison",
@@ -11,8 +10,8 @@ var bio = {
         "location": "Las Vegas, NV"
     },
     "welcomeMessage": "Hello, thanks for taking the time to checkout my page!",
-    "skills": ["HTML", "CSS", "JavaScript", "Git"],
-    "bioPic": "images/resumepic.jpg"
+    "skills": ["HTML", "CSS", "JavaScript", "Git", "Bootstrap", "Jquery"],
+    "biopic": "images/resumepic.jpg"
 };
 
 
@@ -21,14 +20,15 @@ var bio = {
 //Contacts//
 
 
-function displayBio() {
+bio.display = function() {
+
     var formattedName = HTMLheaderName.replace("%data%", bio.name);
 
     var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
     $("#header").prepend(formattedRole);
     $("#header").prepend(formattedName);
 
-    var formattedbioPic = HTMLbioPic.replace("%data%", bio.bioPic);
+    var formattedbioPic = HTMLbioPic.replace("%data%", bio.biopic);
     $("#header").append(formattedbioPic);
 
     var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
@@ -41,90 +41,92 @@ function displayBio() {
     $("#topContacts").append(formattedGithub);
 
     var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-    $("#topContacts").append(formattedLocation);
+    $("#topContacts", "#footerContacts").append(formattedLocation);
 
     var formattedMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
     $("#header").append(formattedMessage);
+
+
+
+    // Skills/
+
+
+
+
+    $("#header").append(HTMLskillsStart);
+
+    var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
+    $("#skills").append(formattedSkill);
+    formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
+    $("#skills").append(formattedSkill);
+    formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
+    $("#skills").append(formattedSkill);
+    formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
+    $("#skills").append(formattedSkill);
+    formattedSkill = HTMLskills.replace("%data%", bio.skills[4]);
+    $("#skills").append(formattedSkill);
+    formattedSkill = HTMLskills.replace("%data%", bio.skills[5]);
+    $("#skills").append(formattedSkill);
+    formattedSkill = HTMLskills.replace("%data%", bio.skills[6]);
 }
-displayBio();
 
-// Skills/
 
-function displaySkills() {
-    if (bio.skills.length > 0) {
-
-        $("#header").append(HTMLskillsStart);
-
-        var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
-        $("#skills").append(formattedSkill);
-        formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
-        $("#skills").append(formattedSkill);
-        formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
-        $("#skills").append(formattedSkill);
-        formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
-        $("#skills").append(formattedSkill);
-        formattedSkill = HTMLskills.replace("%data%", bio.skills[4]);
-    }
-}
-displaySkills();
+bio.display();
 
 //Work//
 
-function displayWork() {
-    var work = {
-        "jobs": [
-
-            {
-                "employer": "Colonial Life",
-                "title": "Customer Service Specialist",
-                "dates": "August 2017 - Present",
-                "location": "Las Vegas, NV",
-                "description": ["Service incoming calls",
-                    " Answer questions about insurance policies",
-                    " Check the status of insurance claims"
-                ]
-            },
 
 
-            {
-                "employer": "Voya Financial",
-                "title": "Customer Service Associate",
-                "dates": "September 2015 - April 2017",
-                "location": "Las Vegas, NV",
-                "description": ["Service incoming calls",
-                    " Answer questions about specific retirement plans",
-                    " Process withdrawal and loan transactions for plan participants"
-                ]
-            },
+var work = {
+    "jobs": [
 
-            {
-                "employer": "Ameriprise Auto & Home Insurance",
-                "title": "Inside Sales Agent",
-                "dates": "October 2014 - August 2015",
-                "location": "Las Vegas, NV",
-                "description": "Took inbound calls from potential clients looking for Home and Auto Insurance quotes"
-            },
+        {
+            "employer": "Unum",
+            "title": "Customer Service Specialist",
+            "dates": "August 2017 - Present",
+            "location": "Las Vegas, NV",
+            "description": "Service incoming calls, Answer questions about insurance policies,Check the status of insurance claims"
+        },
 
-            {
-                "employer": "Starbucks Coffe Company",
-                "title": "Shift Supervisor",
-                "dates": "April 2010 - October 2014",
-                "location": "Las Vegas, NV",
-                "description": [
-                    "Delegated tasks and staff management", " Promote new products and meet sales goals", " Complete inventory counts and cash management"
-                ]
-            },
 
-            {
-                "employer": "Panera Bread Company",
-                "title": "Associate",
-                "dates": "April 2008 - Febraury 2010",
-                "location": "Cordova, TN",
-                "description": ["Preparing and stocking food", " Providing customer service", " Cleaning and closing kitchen", " Maintaining dining area"]
-            }
-        ]
+        {
+            "employer": "Voya Financial",
+            "title": "Customer Service Associate",
+            "dates": "September 2015 - April 2017",
+            "location": "Las Vegas, NV",
+            "description": "Service incoming calls, Answer questions about specific retirement plans, Process withdrawal and loan transactions for plan participants"
+        },
 
-    };
+        {
+            "employer": "Ameriprise Auto & Home Insurance",
+            "title": "Inside Sales Agent",
+            "dates": "October 2014 - August 2015",
+            "location": "Las Vegas, NV",
+            "description": "Took inbound calls from potential clients looking for Home and Auto Insurance quotes"
+        },
+
+        {
+            "employer": "Starbucks Coffe Company",
+            "title": "Shift Supervisor",
+            "dates": "April 2010 - October 2014",
+            "location": "Las Vegas, NV",
+            "description": "Delegated tasks and staff management, Promote new products and meet sales goals, Complete inventory counts and cash management"
+        },
+
+        {
+            "employer": "Panera Bread Company",
+            "title": "Associate",
+            "dates": "April 2008 - Febraury 2010",
+            "location": "Cordova, TN",
+            "description": "Preparing and stocking food,  Providing customer service, sCleaning and closing kitchen,  Maintaining dining area"
+        }
+    ]
+
+};
+
+
+work.display = function() {
+
 
     for (var j = 0; j < work.jobs.length; j++) {
         $("#workExperience").append(HTMLworkStart);
@@ -135,54 +137,55 @@ function displayWork() {
             HTMLworkDescription.replace("%data%", work.jobs[j].description));
 
     }
+
+
+
 }
 
-displayWork();
+work.display();
 
 //Projects//
 
-function displayProjects() {
 
-    var projects = {
-        projects: [
 
-            {
-                "title": "Animal Trading Card",
-                "date": "2017",
-                "description": "Animal facts about a the kangaroo.",
+var projects = {
+    projects: [
 
-                "images": ["images/kangarooProject.png"]
+        {
+            "title": "Animal Trading Card",
+            "dates": "2017",
+            "description": "Animal facts about a the kangaroo.",
 
-            },
+            "images": ["images/kangarooProject.png"]
 
-            {
-                "title": "Restaurant Project",
-                "date": "2017",
-                "description": "Info about the restaurant Confusion.",
+        },
 
-                "images": ["images/RestaurantProject.png"]
+        {
+            "title": "Restaurant Project",
+            "dates": "2017",
+            "description": "Info about the restaurant Confusion.",
 
-            }
+            "images": ["images/RestaurantProject.png"]
 
-        ]
-    };
+        }
 
+    ]
+};
+
+projects.display = function() {
 
     for (var p = 0; p < projects.projects.length; p++) {
 
         $("#projects").append(HTMLprojectStart);
-        $(".project-entry:last").append(HTMLprojectTitle.replace("%data%", projects.projects[p].title) + HTMLprojectDates.replace("%data%", projects.projects[p].date) + HTMLprojectDescription.replace("%data%", projects.projects[p].description));
+        $(".project-entry:last").append(HTMLprojectTitle.replace("%data%", projects.projects[p].title) + HTMLprojectDates.replace("%data%", projects.projects[p].dates) + HTMLprojectDescription.replace("%data%", projects.projects[p].description));
 
 
-        if (projects.projects[p].images.length > 0) {
+        for (var a = 0; a < projects.projects[p].images.length; a++) {
 
-            for (var image in projects.projects[p].images) {
-                var formattedImages = HTMLprojectImage.replace("%data%", projects.projects[p].images[image]);
-                $(".project-entry:last").append(formattedImages);
-            }
 
+            var formattedImages = HTMLprojectImage.replace("%data%", projects.projects[p].images[a]);
+            $(".project-entry:last").append(formattedImages);
         }
-
 
     }
 
@@ -191,79 +194,86 @@ function displayProjects() {
 
 }
 
-displayProjects();
+
+projects.display();
 
 //Education//
 
-function displayEducation() {
 
 
-    var education = {
-        "schools": [
 
-            {
-                "school": "Berklee College of Music",
-                "city": "Boston, MA",
-                "degree": "Class of 2020",
-                "major": "Songwriting & Electronic Music Production",
-                "year": "2015 - Present"
-            },
+var education = {
 
+    "schools": [
 
-            {
-                "school": "Southwest Community College",
-                "city": "Memphis, TN",
-                "degree": "No degree",
-                "major": "Information Technology",
-                "year": "2013 - 2014"
-            }
-        ],
-        "onlineCourses": [{
-                "school": "Udacity",
-                "type": "Nanodegree",
-                "title": "Front End Web Developer",
-                "year": "2017",
-                "url": "www.Udacity.com"
-
-            },
-
-            {
-                "school": "Coursera",
-                "type": "Certification",
-                "title": "HTML, CSS, JavaScript",
-                "year": "2017",
-                "url": "https://www.coursera.org/account/accomplishments/certificate/Y875WY8V4FM4"
+        {
+            "name": "Berklee College of Music",
+            "location": "Boston, MA",
+            "degree": "Class of 2020",
+            "majors": ["Songwriting & Electronic Music Production"],
+            "dates": "2015 - Present"
+        },
 
 
-            },
+        {
+            "name": "Southwest Community College",
+            "location": "Memphis, TN",
+            "degree": "No degree",
+            "majors": ["Information Technology"],
+            "dates": "2013 - 2014"
+        }
+    ],
 
-            {
-                "school": "Coursera",
-                "type": "Certification",
-                "title": "Front-End Web UI Frameworks and Tools",
-                "year": "2017",
-                "url": "https://www.coursera.org/account/accomplishments/certificate/E6QT7M6XV8PH"
-            }
-        ]
-    };
+
+    "onlineClasses": [{
+            "name": "Udacity",
+            "type": "Nanodegree",
+            "title": "Front End Web Developer",
+            "dates": "2017",
+            "url": "www.Udacity.com"
+
+        },
+
+        {
+            "name": "Coursera",
+            "type": "Certification",
+            "title": "HTML, CSS, JavaScript",
+            "dates": "2017",
+            "url": "https://www.coursera.org/account/accomplishments/certificate/Y875WY8V4FM4"
+
+
+        },
+
+        {
+            "name": "Coursera",
+            "type": "Certification",
+            "title": "Front-End Web UI Frameworks and Tools",
+            "dates": "2017",
+            "url": "https://www.coursera.org/account/accomplishments/certificate/E6QT7M6XV8PH"
+        }
+    ]
+};
+
+education.display = function() {
+
 
     $("#education").append(HTMLschoolStart);
     for (var e = 0; e < education.schools.length; e++) {
 
-        $(".education-entry:last").append(HTMLschoolName.replace("%data%", education.schools[e].school) + HTMLschoolDegree.replace("%data%", education.schools[e].degree) + HTMLschoolDates.replace("%data%", education.schools[e].year) + HTMLschoolLocation.replace("%data%", education.schools[e].city) + HTMLschoolMajor.replace("%data%", education.schools[e].major));
-
+        $(".education-entry:last").append(HTMLschoolName.replace("%data%", education.schools[e].name) + HTMLschoolDegree.replace("%data%", education.schools[e].degree) + HTMLschoolDates.replace("%data%", education.schools[e].dates) + HTMLschoolLocation.replace("%data%", education.schools[e].location) + HTMLschoolMajor.replace("%data%", education.schools[e].majors));
     }
-    $(".education-entry:last").append(HTMLonlineClasses);
 
-    for (var c = 0; c < education.onlineCourses.length; c++) {
+    $(".education-entry:last").append(HTMLonlineClasses)
 
-        $(".education-entry:last").append;
-        (HTMLonlineTitle.replace("%data%", education.onlineCourses[c].title) + HTMLonlineSchool.replace("%data%", education.onlineCourses[c].school) + HTMLonlineDates.replace("%data%", education.onlineCourses[c].year) + HTMLonlineURL.replace("%data%", education.onlineCourses[c].url));
+    for (var c = 0; c < education.onlineClasses.length; c++) {
+
+        $(".education-entry:last").append(HTMLonlineTitle.replace("%data%", education.onlineClasses[c].title) + HTMLonlineSchool.replace("%data%", education.onlineClasses[c].name) + HTMLonlineDates.replace("%data%", education.onlineClasses[c].dates) + HTMLonlineURL.replace("%data%", education.onlineClasses[c].url));
     }
+
 }
 
 
-displayEducation();
+education.display();
 
 //Track Clicks//
 
@@ -295,6 +305,3 @@ function inName() {
 
     return bio.name[0] + " " + bio.name[1];
 }
-
-
-
