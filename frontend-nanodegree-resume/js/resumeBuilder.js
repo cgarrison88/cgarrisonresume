@@ -68,7 +68,7 @@ bio.display = function() {
     formattedSkill = HTMLskills.replace("%data%", bio.skills[5]);
     $("#skills").append(formattedSkill);
     formattedSkill = HTMLskills.replace("%data%", bio.skills[6]);
-}
+};
 
 
 bio.display();
@@ -140,7 +140,7 @@ work.display = function() {
 
 
 
-}
+};
 
 work.display();
 
@@ -192,7 +192,7 @@ projects.display = function() {
 
 
 
-}
+};
 
 
 projects.display();
@@ -263,14 +263,14 @@ education.display = function() {
         $(".education-entry:last").append(HTMLschoolName.replace("%data%", education.schools[e].name) + HTMLschoolDegree.replace("%data%", education.schools[e].degree) + HTMLschoolDates.replace("%data%", education.schools[e].dates) + HTMLschoolLocation.replace("%data%", education.schools[e].location) + HTMLschoolMajor.replace("%data%", education.schools[e].majors));
     }
 
-    $(".education-entry:last").append(HTMLonlineClasses)
+    $(".education-entry:last").append(HTMLonlineClasses);
 
     for (var c = 0; c < education.onlineClasses.length; c++) {
 
         $(".education-entry:last").append(HTMLonlineTitle.replace("%data%", education.onlineClasses[c].title) + HTMLonlineSchool.replace("%data%", education.onlineClasses[c].name) + HTMLonlineDates.replace("%data%", education.onlineClasses[c].dates) + HTMLonlineURL.replace("%data%", education.onlineClasses[c].url));
     }
 
-}
+};
 
 
 education.display();
