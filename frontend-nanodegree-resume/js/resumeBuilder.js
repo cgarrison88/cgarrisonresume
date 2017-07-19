@@ -32,13 +32,13 @@ bio.display = function() {
     $("#header").append(formattedbioPic);
 
     var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-    $("#topContacts").append(formattedMobile);
+    $("#topContacts, #footerContacts").append(formattedMobile);
 
     var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-    $("#topContacts").append(formattedEmail);
+    $("#topContacts, #footerContacts").append(formattedEmail);
 
     var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
-    $("#topContacts").append(formattedGithub);
+    $("#topContacts, #footerContacts").append(formattedGithub);
 
     var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
     $("#topContacts, #footerContacts").append(formattedLocation);
@@ -200,7 +200,8 @@ var education = {
             "location": "Boston, MA",
             "degree": "Class of 2020",
             "majors": ["Songwriting & Electronic Music Production"],
-            "dates": "2015 - Present"
+            "dates": "2015 - Present",
+            "url": "https://online.berklee.edu/"
         },
 
 
@@ -209,7 +210,8 @@ var education = {
             "location": "Memphis, TN",
             "degree": "No degree",
             "majors": ["Information Technology"],
-            "dates": "2013 - 2014"
+            "dates": "2013 - 2014",
+            "url": "www.southwest.tn.edu/"
         }
     ],
 
@@ -246,8 +248,10 @@ var education = {
 education.display = function() {
 
 
-    $("#education").append(HTMLschoolStart);
+    // $("#education").append(HTMLschoolStart);
     for (var e = 0; e < education.schools.length; e++) {
+
+        $("#education").append(HTMLschoolStart);
 
         $(".education-entry:last").append(HTMLschoolName.replace("%data%", education.schools[e].name) + HTMLschoolDegree.replace("%data%", education.schools[e].degree) + HTMLschoolDates.replace("%data%", education.schools[e].dates) + HTMLschoolLocation.replace("%data%", education.schools[e].location) + HTMLschoolMajor.replace("%data%", education.schools[e].majors));
     }
