@@ -41,35 +41,24 @@ bio.display = function() {
     $("#topContacts").append(formattedGithub);
 
     var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-    $("#topContacts", "#footerContacts").append(formattedLocation);
+    $("#topContacts, #footerContacts").append(formattedLocation);
 
     var formattedMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
     $("#header").append(formattedMessage);
 
 
 
-    // Skills/
+    // Skills//
 
+    $("#header").append(HTMLskillsStart)
 
+    for (var s = 0; s < bio.skills.length; s++) {
 
+        $("#skills").append(HTMLskills.replace("%data%", bio.skills[s]));
 
-    $("#header").append(HTMLskillsStart);
+    }
 
-    var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
-    $("#skills").append(formattedSkill);
-    formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
-    $("#skills").append(formattedSkill);
-    formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
-    $("#skills").append(formattedSkill);
-    formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
-    $("#skills").append(formattedSkill);
-    formattedSkill = HTMLskills.replace("%data%", bio.skills[4]);
-    $("#skills").append(formattedSkill);
-    formattedSkill = HTMLskills.replace("%data%", bio.skills[5]);
-    $("#skills").append(formattedSkill);
-    formattedSkill = HTMLskills.replace("%data%", bio.skills[6]);
 };
-
 
 bio.display();
 
@@ -225,8 +214,8 @@ var education = {
     ],
 
 
-    "onlineClasses": [{
-            "name": "Udacity",
+    "onlineCourses": [{
+            "school": "Udacity",
             "type": "Nanodegree",
             "title": "Front End Web Developer",
             "dates": "2017",
@@ -235,7 +224,7 @@ var education = {
         },
 
         {
-            "name": "Coursera",
+            "school": "Coursera",
             "type": "Certification",
             "title": "HTML, CSS, JavaScript",
             "dates": "2017",
@@ -245,7 +234,7 @@ var education = {
         },
 
         {
-            "name": "Coursera",
+            "school": "Coursera",
             "type": "Certification",
             "title": "Front-End Web UI Frameworks and Tools",
             "dates": "2017",
@@ -265,9 +254,9 @@ education.display = function() {
 
     $(".education-entry:last").append(HTMLonlineClasses);
 
-    for (var c = 0; c < education.onlineClasses.length; c++) {
+    for (var c = 0; c < education.onlineCourses.length; c++) {
 
-        $(".education-entry:last").append(HTMLonlineTitle.replace("%data%", education.onlineClasses[c].title) + HTMLonlineSchool.replace("%data%", education.onlineClasses[c].name) + HTMLonlineDates.replace("%data%", education.onlineClasses[c].dates) + HTMLonlineURL.replace("%data%", education.onlineClasses[c].url));
+        $(".education-entry:last").append(HTMLonlineTitle.replace("%data%", education.onlineCourses[c].title) + HTMLonlineSchool.replace("%data%", education.onlineCourses[c].school) + HTMLonlineDates.replace("%data%", education.onlineCourses[c].dates) + HTMLonlineURL.replace("%data%", education.onlineCourses[c].url));
     }
 
 };
